@@ -1,0 +1,493 @@
+.sp-page {
+    --sp-header-h: 64px;
+    /* change to match your navbar height on mobile */
+    background: var(--black, #000000);
+    color: var(--white, #ffffff);
+    min-height: 100vh;
+    overflow-x: clip;
+}
+
+@media (min-width: 1024px) {
+    .sp-page {
+        --sp-header-h: 80px;
+    }
+}
+
+.sp-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (min-width: 640px) {
+    .sp-wrap {
+        padding: 0 24px;
+    }
+}
+
+/* =========================================================
+   Animations (fast + smooth, GPU friendly)
+   ========================================================= */
+@keyframes sp-rise {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 24px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes sp-bg-zoom {
+    from {
+        transform: scale(1.08);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.sp-hero-anim {
+    opacity: 0;
+    animation: sp-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--d, 0ms);
+}
+
+/* Cards are only hidden when JS is active, so content never gets lost */
+.sp-js [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    transition-delay: var(--d, 0ms);
+}
+
+.sp-js [data-reveal].is-in {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.sp-hero {
+    position: relative;
+    padding: 130px 0 70px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    text-align: center;
+    isolation: isolate;
+}
+
+.sp-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        linear-gradient(to bottom, rgba(10, 10, 11, 0.8), rgba(10, 10, 11, 0.96)),
+        url('/images/services-hero.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation: sp-bg-zoom 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: transform;
+}
+
+.sp-hero__content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sp-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 16px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.sp-eyebrow::before {
+    content: "";
+    width: 30px;
+    height: 1px;
+    background: var(--white, #ffffff);
+    box-shadow: 0 0 10px var(--white, #ffffff);
+}
+
+.sp-h1 {
+    margin: 0 0 20px;
+    font-family: var(--font-grotesk), sans-serif;
+    font-size: clamp(2.1rem, 8vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    overflow-wrap: break-word;
+}
+
+.sp-h1 span {
+    display: block;
+    color: rgba(255, 255, 255, 0.05);
+    -webkit-text-stroke: 1px var(--white, #ffffff);
+}
+
+.sp-lead {
+    margin: 0 auto;
+    max-width: 640px;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+@media (min-width: 640px) {
+    .sp-hero {
+        padding: 160px 0 90px;
+    }
+
+    .sp-lead {
+        font-size: 1.15rem;
+    }
+
+    .sp-h1 span {
+        -webkit-text-stroke: 1.5px var(--white, #ffffff);
+    }
+}
+
+@media (min-width: 1024px) {
+    .sp-hero {
+        padding: 180px 0 100px;
+    }
+}
+
+/* =========================================================
+   Filter bar
+   ========================================================= */
+.sp-filter-bar {
+    position: sticky;
+    top: var(--sp-header-h);
+    z-index: 40;
+    background: rgba(10, 10, 11, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px 0;
+}
+
+.sp-filter__wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+}
+
+.sp-filter__wrap::-webkit-scrollbar {
+    display: none;
+}
+
+.sp-filter__label {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+}
+
+@media (min-width: 640px) {
+    .sp-filter__label {
+        display: flex;
+    }
+
+    .sp-filter-bar {
+        padding: 16px 0;
+    }
+}
+
+.sp-tabs {
+    display: flex;
+    gap: 8px;
+}
+
+.sp-tab {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.sp-tab:active {
+    transform: scale(0.96);
+}
+
+@media (hover: hover) {
+    .sp-tab:hover {
+        border-color: rgba(255, 255, 255, 0.3);
+        color: var(--white, #ffffff);
+        background: rgba(255, 255, 255, 0.06);
+    }
+}
+
+.sp-tab.active {
+    background: var(--white, #ffffff);
+    border-color: var(--white, #ffffff);
+    color: var(--black, #000000);
+    font-weight: 600;
+}
+
+.sp-tab:focus-visible,
+.sp-card__btn:focus-visible {
+    outline: 2px solid var(--white, #ffffff);
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   Cards
+   ========================================================= */
+.sp-list-section {
+    padding: 50px 0 70px;
+}
+
+@media (min-width: 768px) {
+    .sp-list-section {
+        padding: 80px 0 100px;
+    }
+}
+
+.sp-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .sp-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+    }
+}
+
+.sp-empty {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 60px 0;
+}
+
+.sp-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 22px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.008)), #0a0a0b;
+    scroll-margin-top: calc(var(--sp-header-h) + 80px);
+}
+
+@media (min-width: 640px) {
+    .sp-card {
+        padding: 36px 30px;
+        border-radius: 24px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .sp-card {
+        padding: 44px 38px;
+        border-radius: 26px;
+    }
+}
+
+/* Hover lift only on devices with a mouse */
+@media (hover: hover) {
+    .sp-js .sp-card.is-in:hover {
+        transform: translate3d(0, -6px, 0);
+        border-color: rgba(255, 255, 255, 0.35);
+        box-shadow: 0 30px 80px -24px rgba(255, 255, 255, 0.22);
+        transition-delay: 0ms;
+    }
+}
+
+.sp-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.sp-card__category {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.sp-card__num {
+    font-family: var(--font-grotesk), sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+}
+
+.sp-card h2 {
+    margin: 0 0 14px;
+    font-family: var(--font-grotesk), sans-serif;
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.sp-card__desc {
+    margin: 0 0 24px;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+.sp-features {
+    margin-top: auto;
+    padding-top: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 28px;
+}
+
+.sp-features h4 {
+    margin: 0 0 14px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.sp-features ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+@media (min-width: 640px) {
+    .sp-features ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.sp-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.sp-check {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--white, #ffffff);
+}
+
+.sp-card__action {
+    display: flex;
+    align-items: center;
+}
+
+.sp-card__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--white, #ffffff);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+    .sp-card__btn {
+        width: auto;
+        padding: 12px 24px;
+    }
+}
+
+@media (hover: hover) {
+    .sp-card__btn:hover {
+        background: var(--white, #ffffff);
+        color: var(--black, #000000);
+        border-color: var(--white, #ffffff);
+        transform: translateY(-2px);
+    }
+
+    .sp-card__btn:hover .sp-card__arrow {
+        transform: rotate(45deg);
+    }
+}
+
+.sp-card__btn:active {
+    transform: scale(0.98);
+}
+
+.sp-card__arrow {
+    display: grid;
+    place-items: center;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================================
+   Accessibility: respect reduced motion
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+
+    .sp-hero-anim,
+    .sp-hero__bg {
+        animation: none;
+        opacity: 1;
+    }
+
+    .sp-js [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}

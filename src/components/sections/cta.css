@@ -1,0 +1,394 @@
+.cta {
+    position: relative;
+    padding: 70px 0;
+    background: var(--black, #000000);
+    color: var(--white, #ffffff);
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+@media (min-width: 768px) {
+    .cta {
+        padding: 120px 0;
+    }
+}
+
+.cta__wrap {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (min-width: 640px) {
+    .cta__wrap {
+        padding: 0 24px;
+    }
+}
+
+/* =========================================================
+   Animations (fast + smooth, GPU friendly)
+   ========================================================= */
+@keyframes cta-glow {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.cta__panel {
+    position: relative;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.005)), #08080a;
+    padding: 48px 20px 40px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 40px 100px -30px rgba(255, 255, 255, 0.08);
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 640px) {
+    .cta__panel {
+        padding: 64px 40px 52px;
+        border-radius: 28px;
+    }
+}
+
+@media (min-width: 768px) {
+    .cta__panel {
+        padding: 80px 60px 60px;
+        border-radius: 32px;
+    }
+}
+
+.cta.cta--in .cta__panel {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+/* Each block inside the panel fades in one after another */
+.cta__item {
+    opacity: 0;
+    transform: translate3d(0, 18px, 0);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: var(--d, 0ms);
+}
+
+.cta.cta--in .cta__item {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+.cta__ring {
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(500px, 120%);
+    height: 250px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+    animation: cta-glow 4s ease-in-out infinite;
+}
+
+.cta__eyebrow {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 16px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.cta__eyebrow::before {
+    content: "";
+    width: 30px;
+    height: 1px;
+    background: var(--white, #ffffff);
+    box-shadow: 0 0 10px var(--white, #ffffff);
+}
+
+.cta__title {
+    position: relative;
+    font-family: var(--font-grotesk), sans-serif;
+    font-size: clamp(1.9rem, 7vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+    margin: 0 0 18px;
+    overflow-wrap: break-word;
+}
+
+.cta__title span {
+    display: block;
+    color: rgba(255, 255, 255, 0.05);
+    -webkit-text-stroke: 1px var(--white, #ffffff);
+}
+
+@media (min-width: 640px) {
+    .cta__title span {
+        -webkit-text-stroke: 1.5px var(--white, #ffffff);
+    }
+}
+
+.cta__text {
+    position: relative;
+    max-width: 620px;
+    margin: 0 auto 32px;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.65);
+}
+
+@media (min-width: 768px) {
+    .cta__text {
+        font-size: 1.05rem;
+        margin-bottom: 40px;
+    }
+}
+
+/* =========================================================
+   Buttons
+   ========================================================= */
+.cta__actions {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    justify-content: center;
+    align-items: stretch;
+    margin-bottom: 36px;
+}
+
+@media (min-width: 640px) {
+    .cta__actions {
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+}
+
+.cta__btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 14px 28px;
+    border-radius: 16px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.3s ease,
+        background 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.cta__btn:active {
+    transform: scale(0.98);
+}
+
+.cta__btn:focus-visible,
+.cta__social-icons a:focus-visible {
+    outline: 2px solid var(--white, #ffffff);
+    outline-offset: 3px;
+}
+
+.cta__btn--primary {
+    justify-content: space-between;
+    padding: 6px 6px 6px 26px;
+    background: var(--white, #ffffff);
+    color: var(--black, #000000);
+}
+
+.cta__btn-icon {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--black, #000000);
+    color: var(--white, #ffffff);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cta__btn--ghost {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--white, #ffffff);
+}
+
+/* Hover only on devices with a mouse */
+@media (hover: hover) {
+    .cta__btn--primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 16px 40px rgba(255, 255, 255, 0.3);
+    }
+
+    .cta__btn--primary:hover .cta__btn-icon {
+        transform: rotate(45deg);
+    }
+
+    .cta__btn--ghost:hover {
+        background: rgba(255, 255, 255, 0.09);
+        border-color: rgba(255, 255, 255, 0.4);
+        transform: translateY(-3px);
+    }
+}
+
+/* =========================================================
+   Contact info
+   ========================================================= */
+.cta__info {
+    position: relative;
+    list-style: none;
+    padding: 28px 0;
+    margin: 0 0 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    text-align: left;
+}
+
+@media (min-width: 768px) {
+    .cta__info {
+        grid-template-columns: repeat(3, 1fr);
+        text-align: center;
+        gap: 24px;
+    }
+}
+
+.cta__info li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    min-width: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+    .cta__info li {
+        justify-content: center;
+    }
+}
+
+.cta__info li svg {
+    color: rgba(255, 255, 255, 0.5);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.cta__info span {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.cta__info em {
+    font-style: normal;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.cta__info a {
+    color: var(--white, #ffffff);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+@media (hover: hover) {
+    .cta__info a:hover {
+        color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+/* =========================================================
+   Socials
+   ========================================================= */
+.cta__socials {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@media (min-width: 480px) {
+    .cta__socials {
+        flex-direction: row;
+        gap: 16px;
+    }
+}
+
+.cta__social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+.cta__social-icons a {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--white, #ffffff);
+    -webkit-tap-highlight-color: transparent;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.cta__social-icons a:active {
+    transform: scale(0.94);
+}
+
+@media (hover: hover) {
+    .cta__social-icons a:hover {
+        background: var(--white, #ffffff);
+        color: var(--black, #000000);
+        transform: translateY(-2px);
+    }
+}
+
+/* =========================================================
+   Accessibility: respect reduced motion
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+
+    .cta__panel,
+    .cta__item {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .cta__ring {
+        animation: none;
+    }
+}

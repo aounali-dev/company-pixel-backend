@@ -1,0 +1,394 @@
+.tp-page {
+    background: var(--black, #000000);
+    color: var(--white, #ffffff);
+    min-height: 100vh;
+    overflow-x: clip;
+}
+
+.tp-wrap {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+@media (min-width: 640px) {
+    .tp-wrap {
+        padding: 0 24px;
+    }
+}
+
+/* =========================================================
+   Animations (fast + smooth, GPU friendly)
+   ========================================================= */
+@keyframes tp-rise {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 24px, 0);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes tp-bg-zoom {
+    from {
+        transform: scale(1.08);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.tp-hero-anim {
+    opacity: 0;
+    animation: tp-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--d, 0ms);
+}
+
+/* Cards are only hidden when JS is active, so content never gets lost */
+.tp-js [data-reveal] {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    transition-delay: var(--d, 0ms);
+}
+
+.tp-js [data-reveal].is-in {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.tp-hero {
+    position: relative;
+    padding: 130px 0 70px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    text-align: center;
+    isolation: isolate;
+}
+
+.tp-hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image:
+        linear-gradient(to bottom, rgba(10, 10, 11, 0.8), rgba(10, 10, 11, 0.96)),
+        url('/images/services-hero.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation: tp-bg-zoom 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: transform;
+}
+
+.tp-hero__content {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.tp-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 16px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.tp-eyebrow::before {
+    content: "";
+    width: 30px;
+    height: 1px;
+    background: var(--white, #ffffff);
+    box-shadow: 0 0 10px var(--white, #ffffff);
+}
+
+.tp-h1 {
+    margin: 0 0 20px;
+    font-family: var(--font-grotesk), sans-serif;
+    font-size: clamp(2.1rem, 8vw, 4.2rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+    overflow-wrap: break-word;
+}
+
+.tp-h1 span {
+    display: block;
+    color: rgba(255, 255, 255, 0.05);
+    -webkit-text-stroke: 1px var(--white, #ffffff);
+}
+
+.tp-lead {
+    margin: 0 auto;
+    max-width: 640px;
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.68);
+}
+
+@media (min-width: 640px) {
+    .tp-hero {
+        padding: 160px 0 90px;
+    }
+
+    .tp-lead {
+        font-size: 1.15rem;
+    }
+
+    .tp-h1 span {
+        -webkit-text-stroke: 1.5px var(--white, #ffffff);
+    }
+}
+
+@media (min-width: 1024px) {
+    .tp-hero {
+        padding: 180px 0 100px;
+    }
+}
+
+/* =========================================================
+   Team cards
+   ========================================================= */
+.tp-list-section {
+    padding: 50px 0 70px;
+}
+
+@media (min-width: 768px) {
+    .tp-list-section {
+        padding: 80px 0 100px;
+    }
+}
+
+.tp-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 640px) {
+    .tp-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .tp-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+}
+
+.tp-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0a0a0b;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    .tp-card {
+        border-radius: 26px;
+    }
+}
+
+/* Hover lift only on devices with a mouse */
+@media (hover: hover) {
+    .tp-js .tp-card.is-in:hover {
+        transform: translate3d(0, -6px, 0);
+        border-color: rgba(255, 255, 255, 0.35);
+        box-shadow: 0 30px 80px -24px rgba(255, 255, 255, 0.22);
+        transition-delay: 0ms;
+    }
+
+    .tp-card:hover .tp-card__img {
+        transform: scale(1.05);
+    }
+
+    .tp-card:hover .tp-card__arrow {
+        background: var(--white, #ffffff);
+        color: var(--black, #000000);
+        transform: rotate(45deg);
+    }
+}
+
+.tp-card__img-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 4.6;
+    background: #141416;
+    overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .tp-card__img-box {
+        aspect-ratio: 4 / 5;
+    }
+}
+
+.tp-card__img {
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tp-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(10, 10, 11, 0.95) 0%, rgba(10, 10, 11, 0.2) 50%, transparent 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.tp-card__num {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    font-family: var(--font-grotesk), sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white, #ffffff);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    z-index: 2;
+}
+
+.tp-card__role-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    max-width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--white, #ffffff);
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: 2;
+}
+
+.tp-card__body {
+    padding: 24px 20px 28px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+    .tp-card__body {
+        padding: 32px 28px 36px;
+    }
+}
+
+.tp-card h2 {
+    margin: 0 0 10px;
+    font-family: var(--font-grotesk), sans-serif;
+    font-size: clamp(1.3rem, 5vw, 1.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+}
+
+.tp-card__desc {
+    margin: 0 0 20px;
+    font-size: 0.93rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.65);
+    flex-grow: 1;
+}
+
+.tp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+}
+
+.tp-tags span {
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 11.5px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.tp-card__link {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 10px;
+    padding: 4px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white, #ffffff);
+    text-decoration: none;
+    margin-top: auto;
+}
+
+.tp-card__link:focus-visible {
+    outline: 2px solid var(--white, #ffffff);
+    outline-offset: 3px;
+}
+
+.tp-card__arrow {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, color 0.2s ease;
+}
+
+.tp-card__link:active .tp-card__arrow {
+    background: var(--white, #ffffff);
+    color: var(--black, #000000);
+}
+
+/* =========================================================
+   Accessibility: respect reduced motion
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+
+    .tp-hero-anim,
+    .tp-hero__bg {
+        animation: none;
+        opacity: 1;
+    }
+
+    .tp-js [data-reveal] {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .tp-card__img {
+        transition: none;
+    }
+}

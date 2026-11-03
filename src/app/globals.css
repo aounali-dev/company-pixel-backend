@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* =========================================================
+   Pixel Backend: Global colors only (Black & Cream)
+   Har component ki styling uski apni CSS file mein hai.
+   ========================================================= */
+
+:root {
+    /* Base colors */
+    --black: #000000;
+    --black-soft: #0a0a0a;
+    --black-card: #0f0f10;
+    --cream: #f8f3d9;
+    --cream-rgb: 248, 243, 217;
+
+    /* Text */
+    --muted: #959282;
+
+    /* Borders (cream ka transparent version) */
+    --border: rgba(248, 243, 217, 0.08);
+    --border-strong: rgba(248, 243, 217, 0.18);
+
+    /* Accent */
+    --accent: #f8f3d9;
+    --accent-rgb: 248, 243, 217;
+
+    /* Purane naam (alias), taake purani component CSS na tootay */
+    --white: var(--cream);
+}
+
+@theme inline {
+    --color-black: var(--black);
+    --color-cream: var(--cream);
+    --color-white: var(--cream);
+    --color-muted: var(--muted);
+    --font-sans: var(--font-inter);
+    --font-display: var(--font-grotesk);
+}
+
+html {
+    background: var(--black);
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: var(--font-inter), system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: var(--cream);
+    color: var(--black);
+}
