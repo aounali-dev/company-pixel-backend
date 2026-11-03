@@ -28,7 +28,7 @@ export const teamMembers: TeamMember[] = [
         name: "Aoun Ali",
         role: "Full-Stack Developer",
         bio: "Engineering high-performance web applications, modern UI/UX architecture, and robust front-to-back systems with React and Next.js.",
-        image: "/projects/team/aouni.jfif",
+        image: "/projects/team/aouni.png",
         tags: ["React", "Next.js", "TypeScript"]
     },
     {
