@@ -6,7 +6,6 @@ export interface TeamMember {
     image: string;
     tags: string[];
 }
-
 export const teamMembers: TeamMember[] = [
     {
         id: "asad-ali",
@@ -21,7 +20,7 @@ export const teamMembers: TeamMember[] = [
         name: "Murtaza",
         role: "Chief Executive Officer",
         bio: "Driving operational excellence, scaling agency growth, and executing high-impact technical solutions across global markets.",
-        image: "/team/murtaza.jfif",
+        image: "/projects/team/murtaza.jfif",
         tags: ["Management", "Operations", "Growth"]
     },
     {
@@ -29,7 +28,7 @@ export const teamMembers: TeamMember[] = [
         name: "Aoun Ali",
         role: "Full-Stack Developer",
         bio: "Engineering high-performance web applications, modern UI/UX architecture, and robust front-to-back systems with React and Next.js.",
-        image: "/team/aouni.jfif",
+        image: "/projects/team/aouni.jfif",
         tags: ["React", "Next.js", "TypeScript"]
     },
     {
@@ -37,7 +36,7 @@ export const teamMembers: TeamMember[] = [
         name: "Mujtaba",
         role: "Backend Developer (Laravel)",
         bio: "Specializing in robust backend architectures, secure RESTful APIs, database optimization, and scalable Laravel applications.",
-        image: "/team/mujtaba.jfif",
+        image: "/projects/team/mujtaba.jfif",
         tags: ["Laravel", "PHP", "MySQL"]
     },
     {
@@ -45,7 +44,7 @@ export const teamMembers: TeamMember[] = [
         name: "Abdul Hye",
         role: "SEO Expert",
         bio: "Optimizing digital assets, technical SEO audits, and organic traffic growth strategies to dominate search engine rankings.",
-        image: "/team/abdul.jfif",
+        image: "/projects/team/abdul.jfif",
         tags: ["Technical SEO", "Analytics", "Growth"]
     }
 ];
