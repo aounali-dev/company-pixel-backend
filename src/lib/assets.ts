@@ -1,6 +1,9 @@
-/* Sab images ke paths yahan hain. Path `public` folder ke hisaab se likhte hain,
-   `public` ka naam path mein nahi aata. */
+
 export const ASSETS = {
-    asad: "/team/asad.png", // public/team/asad.png
-    logo: "/team/pixel-Photoroom.png", // logo jahan rakha hai wahan ka path likhein
+    asad: "/images/asad.png",       // public/images/asad.png
+    murtaza: "/images/murtaza.png", // public/images/murtaza.png
+    aouni: "/images/aouni.png",     // public/images/aouni.png
+    mujtaba: "/images/mujtaba.png", // public/images/mujtaba.png
+    abdul: "/images/abdul.png",     // public/images/abdul.png
+    logo: "/images/logo.png",       // public/images/logo.png
 };
