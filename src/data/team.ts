@@ -20,7 +20,7 @@ export const teamMembers: TeamMember[] = [
         name: "Murtaza",
         role: "Chief Executive Officer",
         bio: "Driving operational excellence, scaling agency growth, and executing high-impact technical solutions across global markets.",
-        image: "/projects/team/murtaza.jfif",
+        image: "/pixel-backend/public/team/murtaza.jfif",
         tags: ["Management", "Operations", "Growth"]
     },
     {
