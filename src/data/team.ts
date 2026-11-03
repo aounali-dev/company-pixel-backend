@@ -6,6 +6,15 @@ export interface TeamMember {
     image: string;
     tags: string[];
 }
+export interface TeamMember {
+    id: string;
+    name: string;
+    role: string;
+    bio: string;
+    image: string;
+    tags: string[];
+}
+
 export const teamMembers: TeamMember[] = [
     {
         id: "asad-ali",
@@ -20,7 +29,7 @@ export const teamMembers: TeamMember[] = [
         name: "Murtaza",
         role: "Chief Executive Officer",
         bio: "Driving operational excellence, scaling agency growth, and executing high-impact technical solutions across global markets.",
-        image: "/pixel-backend/public/team/murtaza.jfif",
+        image: "/images/murtaza.png", // Updated path & extension[cite: 4]
         tags: ["Management", "Operations", "Growth"]
     },
     {
@@ -28,7 +37,7 @@ export const teamMembers: TeamMember[] = [
         name: "Aoun Ali",
         role: "Full-Stack Developer",
         bio: "Engineering high-performance web applications, modern UI/UX architecture, and robust front-to-back systems with React and Next.js.",
-        image: "/projects/team/aouni.png",
+        image: "/images/aouni.png", // Updated path & extension[cite: 4]
         tags: ["React", "Next.js", "TypeScript"]
     },
     {
@@ -36,7 +45,7 @@ export const teamMembers: TeamMember[] = [
         name: "Mujtaba",
         role: "Backend Developer (Laravel)",
         bio: "Specializing in robust backend architectures, secure RESTful APIs, database optimization, and scalable Laravel applications.",
-        image: "/projects/team/mujtaba.jfif",
+        image: "/images/mujtaba.png", // Updated path & extension[cite: 4]
         tags: ["Laravel", "PHP", "MySQL"]
     },
     {
@@ -44,7 +53,7 @@ export const teamMembers: TeamMember[] = [
         name: "Abdul Hye",
         role: "SEO Expert",
         bio: "Optimizing digital assets, technical SEO audits, and organic traffic growth strategies to dominate search engine rankings.",
-        image: "/projects/team/abdul.jfif",
+        image: "/images/abdul.png", // Updated path & extension[cite: 4]
         tags: ["Technical SEO", "Analytics", "Growth"]
     }
 ];
