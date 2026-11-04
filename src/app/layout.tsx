@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import WhatsAppWidget from "@/components/sections/WhatsAppWidget"; // <--- WhatsApp Widget Import
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <Navbar />
                 {children}
                 <Footer />
+                <WhatsAppWidget /> {/* <--- WhatsApp Widget Rendered Here */}
             </body>
         </html>
     );

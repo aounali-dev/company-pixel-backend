@@ -1,81 +1,31 @@
 .pp-page {
-    --pp-header-h: 64px;
-    /* change to match your navbar height on mobile */
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
     background: var(--black, #000000);
     color: var(--white, #ffffff);
     min-height: 100vh;
     overflow-x: clip;
 }
 
-@media (min-width: 1024px) {
-    .pp-page {
-        --pp-header-h: 80px;
-    }
-}
-
 .pp-wrap {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
-@media (min-width: 640px) {
-    .pp-wrap {
-        padding: 0 24px;
-    }
-}
-
-/* =========================================================
-   Animations (fast + smooth, GPU friendly)
-   ========================================================= */
 @keyframes pp-rise {
     from {
         opacity: 0;
-        transform: translate3d(0, 24px, 0);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate3d(0, 0, 0);
+        transform: translateY(40px);
     }
 }
 
 @keyframes pp-bg-zoom {
     from {
-        transform: scale(1.08);
-    }
-
-    to {
-        transform: scale(1);
+        transform: scale(1.12);
     }
 }
 
-.pp-hero-anim {
-    opacity: 0;
-    animation: pp-rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    animation-delay: var(--d, 0ms);
-}
-
-/* Cards are only hidden when JS is active, so content never gets lost */
-.pp-js [data-reveal] {
-    opacity: 0;
-    transform: translate3d(0, 28px, 0);
-    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-        border-color 0.3s ease,
-        box-shadow 0.3s ease;
-    transition-delay: var(--d, 0ms);
-}
-
-.pp-js [data-reveal].is-in {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-}
-
-/* =========================================================
-   Hero
-   ========================================================= */
 .pp-hero {
     position: relative;
     padding: 130px 0 70px;
@@ -91,176 +41,125 @@
     z-index: -1;
     background-image:
         linear-gradient(to bottom, rgba(10, 10, 11, 0.8), rgba(10, 10, 11, 0.96)),
-        url('/images/services-hero.jpg');
+        url("/images/services-hero.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    animation: pp-bg-zoom 1.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: pp-bg-zoom 1.6s var(--ease) both;
     will-change: transform;
 }
 
 .pp-hero__content {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
     max-width: 800px;
     margin: 0 auto;
+    text-align: center;
+}
+
+.pp-hero-anim {
+    animation: pp-rise 0.9s var(--ease) var(--d, 0ms) backwards;
 }
 
 .pp-eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    margin: 0 0 16px;
-    font-size: 11px;
+    justify-content: center;
+    gap: 14px;
+    margin: 0;
+    font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.72);
 }
 
-.pp-eyebrow::before {
+.pp-eyebrow::before,
+.pp-eyebrow::after {
     content: "";
-    width: 30px;
+    width: 34px;
     height: 1px;
     background: var(--white, #ffffff);
     box-shadow: 0 0 10px var(--white, #ffffff);
 }
 
 .pp-h1 {
-    margin: 0 0 20px;
+    margin: 0;
+    width: 100%;
     font-family: var(--font-grotesk), sans-serif;
-    font-size: clamp(2.1rem, 8vw, 4.2rem);
+    font-size: clamp(2.4rem, 6vw, 4.6rem);
     font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.035em;
-    overflow-wrap: break-word;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    text-align: center;
+    text-wrap: balance;
 }
 
 .pp-h1 span {
     display: block;
     color: rgba(255, 255, 255, 0.05);
-    -webkit-text-stroke: 1px var(--white, #ffffff);
+    -webkit-text-stroke: 1.5px var(--white, #ffffff);
 }
 
 .pp-lead {
+    max-width: 600px;
     margin: 0 auto;
-    max-width: 640px;
-    font-size: 1rem;
-    line-height: 1.75;
-    color: rgba(255, 255, 255, 0.68);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
 }
 
-@media (min-width: 640px) {
-    .pp-hero {
-        padding: 160px 0 90px;
-    }
-
-    .pp-lead {
-        font-size: 1.15rem;
-    }
-
-    .pp-h1 span {
-        -webkit-text-stroke: 1.5px var(--white, #ffffff);
-    }
-}
-
-@media (min-width: 1024px) {
-    .pp-hero {
-        padding: 180px 0 100px;
-    }
-}
-
-/* =========================================================
-   Filter bar
-   ========================================================= */
 .pp-filter-bar {
-    position: sticky;
-    top: var(--pp-header-h);
-    z-index: 40;
-    background: rgba(10, 10, 11, 0.9);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    padding: 22px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 12px 0;
+    background: rgba(255, 255, 255, 0.02);
 }
 
 .pp-filter__wrap {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 16px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-}
-
-.pp-filter__wrap::-webkit-scrollbar {
-    display: none;
+    gap: 16px 24px;
 }
 
 .pp-filter__label {
-    display: none;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     font-size: 13px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.5);
-    white-space: nowrap;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .pp-tabs {
     display: flex;
-    gap: 8px;
-    width: 100%;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-/* Two equal tabs on mobile */
 .pp-tab {
-    flex: 1 1 0;
-    min-width: max-content;
-    padding: 10px 14px;
+    padding: 11px 22px;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.03);
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 12.5px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.78);
+    font-family: inherit;
+    font-size: 14px;
     font-weight: 500;
-    text-align: center;
     cursor: pointer;
-    white-space: nowrap;
-    -webkit-tap-highlight-color: transparent;
-    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.35s var(--ease);
 }
 
-.pp-tab:active {
-    transform: scale(0.97);
-}
-
-@media (min-width: 640px) {
-    .pp-filter__label {
-        display: flex;
-    }
-
-    .pp-filter-bar {
-        padding: 16px 0;
-    }
-
-    .pp-tabs {
-        width: auto;
-        gap: 10px;
-    }
-
-    .pp-tab {
-        flex: none;
-        padding: 8px 20px;
-        font-size: 13px;
-    }
-}
-
-@media (hover: hover) {
-    .pp-tab:hover {
-        border-color: rgba(255, 255, 255, 0.3);
-        color: var(--white, #ffffff);
-        background: rgba(255, 255, 255, 0.06);
-    }
+.pp-tab:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: var(--white, #ffffff);
 }
 
 .pp-tab.active {
@@ -276,178 +175,140 @@
     outline-offset: 3px;
 }
 
-/* =========================================================
-   Cards
-   ========================================================= */
 .pp-list-section {
-    padding: 50px 0 70px;
-}
-
-@media (min-width: 768px) {
-    .pp-list-section {
-        padding: 80px 0 100px;
-    }
+    padding: 80px 0 110px;
 }
 
 .pp-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-}
-
-@media (min-width: 640px) {
-    .pp-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-}
-
-@media (min-width: 1024px) {
-    .pp-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
-    }
+    gap: 24px;
 }
 
 .pp-card {
     position: relative;
     display: flex;
     flex-direction: column;
-    border-radius: 20px;
+    min-width: 0;
+    border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    background: #0a0a0b;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.008)), #0a0a0b;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
     overflow: hidden;
+    isolation: isolate;
+    transition: transform 0.45s var(--ease), border-color 0.35s ease, box-shadow 0.4s ease;
 }
 
-@media (min-width: 768px) {
-    .pp-card {
-        border-radius: 24px;
-    }
+.pp-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(255, 255, 255, 0.34);
+    box-shadow:
+        0 28px 70px -28px rgba(255, 255, 255, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-/* Hover lift only on devices with a mouse */
-@media (hover: hover) {
-    .pp-js .pp-card.is-in:hover {
-        transform: translate3d(0, -6px, 0);
-        border-color: rgba(255, 255, 255, 0.35);
-        box-shadow: 0 30px 80px -24px rgba(255, 255, 255, 0.22);
-        transition-delay: 0ms;
-    }
+.pp-js [data-reveal] {
+    opacity: 0;
+}
 
-    .pp-card:hover .pp-card__img {
-        transform: scale(1.05);
-    }
-
-    .pp-card:hover .pp-card__arrow {
-        background: var(--white, #ffffff);
-        color: var(--black, #000000);
-        transform: rotate(45deg);
-    }
+.pp-js [data-reveal].is-in {
+    opacity: 1;
+    animation: pp-rise 0.8s var(--ease) var(--d, 0ms) backwards;
 }
 
 .pp-card__img-box {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 10;
-    background: #141416;
+    background: rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .pp-card__img {
     object-fit: cover;
-    object-position: center top;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    object-position: top center;
+    transition: transform 0.7s var(--ease);
 }
 
-/* Soft shade so the number and badge stay readable on any image */
-.pp-card__img-box::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent 45%);
-    pointer-events: none;
-    z-index: 1;
+.pp-card:hover .pp-card__img {
+    transform: scale(1.05);
 }
 
 .pp-card__num {
     position: absolute;
-    top: 14px;
-    left: 18px;
-    font-family: var(--font-grotesk), sans-serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--white, #ffffff);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+    top: 16px;
+    left: 16px;
     z-index: 2;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.6);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    font-family: var(--font-grotesk), sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
 }
 
 .pp-card__client {
     position: absolute;
-    top: 14px;
+    top: 16px;
     right: 16px;
-    max-width: 60%;
+    z-index: 2;
+    max-width: 55%;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: var(--white, #ffffff);
+    color: var(--black, #000000);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--white, #ffffff);
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    z-index: 2;
 }
 
 .pp-card__body {
-    padding: 22px 20px 26px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    padding: 28px 28px 26px;
+    text-align: left;
 }
 
-@media (min-width: 768px) {
-    .pp-card__body {
-        padding: 28px 24px 32px;
-    }
-}
-
-.pp-card h2 {
-    margin: 0 0 10px;
+.pp-card__body h2 {
+    margin: 0 0 12px;
     font-family: var(--font-grotesk), sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     font-weight: 600;
     line-height: 1.25;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.02em;
 }
 
 .pp-card__desc {
-    margin: 0 0 18px;
-    font-size: 0.92rem;
-    line-height: 1.65;
-    color: rgba(255, 255, 255, 0.62);
-    flex-grow: 1;
+    margin: 0 0 20px;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.58);
 }
 
 .pp-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 22px;
+    gap: 8px;
+    margin: 0 0 26px;
 }
 
 .pp-tags span {
-    padding: 4px 9px;
-    border-radius: 6px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
     background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    font-size: 11px;
-    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.78);
 }
 
 .pp-card__link {
@@ -455,47 +316,137 @@
     align-items: center;
     align-self: flex-start;
     gap: 10px;
-    padding: 4px 0;
+    margin-top: auto;
     font-size: 14px;
     font-weight: 600;
     color: var(--white, #ffffff);
     text-decoration: none;
-    margin-top: auto;
 }
 
 .pp-card__arrow {
     display: grid;
     place-items: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
     background: rgba(255, 255, 255, 0.08);
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, color 0.2s ease;
+    transition: transform 0.4s var(--ease), background 0.25s ease, color 0.25s ease;
 }
 
-.pp-card__link:active .pp-card__arrow {
+.pp-card:hover .pp-card__arrow {
     background: var(--white, #ffffff);
     color: var(--black, #000000);
+    transform: rotate(45deg);
 }
 
-/* =========================================================
-   Accessibility: respect reduced motion
-   ========================================================= */
+.pp-card--graphic {
+    display: block;
+    aspect-ratio: 1 / 1;
+}
+
+.pp-card--graphic .pp-card__img-box {
+    height: 100%;
+    aspect-ratio: auto;
+    border-bottom: 0;
+}
+
+.pp-card--graphic .pp-card__img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.pp-card--graphic:hover .pp-card__img {
+    transform: none;
+}
+
+@media (min-width: 640px) {
+    .pp-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .pp-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 26px;
+    }
+}
+
+@media (max-width: 639px) {
+    .pp-hero {
+        padding: 120px 0 56px;
+    }
+
+    .pp-wrap {
+        padding: 0 20px;
+    }
+
+    .pp-hero__content {
+        gap: 18px;
+    }
+
+    .pp-eyebrow::before,
+    .pp-eyebrow::after {
+        width: 22px;
+    }
+
+    .pp-h1 span {
+        -webkit-text-stroke: 1px var(--white, #ffffff);
+    }
+
+    .pp-lead {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .pp-list-section {
+        padding: 56px 0 80px;
+    }
+
+    .pp-card {
+        border-radius: 22px;
+    }
+
+    .pp-card__body {
+        padding: 24px 22px 22px;
+    }
+
+    .pp-filter__wrap {
+        justify-content: center;
+    }
+
+    .pp-tabs {
+        width: 100%;
+    }
+
+    .pp-tab {
+        flex: 1 1 100%;
+        text-align: center;
+    }
+}
+
+@media (hover: none) {
+    .pp-card:hover {
+        transform: none;
+    }
+
+    .pp-card:hover .pp-card__img {
+        transform: none;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
 
+    .pp-hero__bg,
     .pp-hero-anim,
-    .pp-hero__bg {
+    .pp-js [data-reveal].is-in {
         animation: none;
-        opacity: 1;
     }
 
-    .pp-js [data-reveal] {
-        opacity: 1;
-        transform: none;
-        transition: none;
-    }
-
-    .pp-card__img {
-        transition: none;
+    .pp-card,
+    .pp-card__img,
+    .pp-card__arrow,
+    .pp-tab {
+        transition-duration: 0.01ms;
     }
 }

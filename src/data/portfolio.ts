@@ -19,121 +19,85 @@ export interface GraphicProject {
 
 export const webProjects: WebProject[] = [
     {
-        id: "holly-holistic",
+        id: "Treadmill Research Platform",
         num: "01",
         title: "WordPress Wellness Website",
-        client: "Holly Holistic",
-        description: "A calming and elegant holistic wellness website designed to showcase crystal healing, spiritual guidance, and Crystal Alchemy certification.",
-        tags: ["WordPress", "Booking System", "UI/UX"],
-        liveUrl: "#",
-        image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=800&auto=format&fit=crop"
+        client: "Treadmill Research Platform",
+        description: "Explore trusted treadmill reviews, detailed specifications, brand comparisons, and fitness tools designed to simplify research and help users make informed home fitness equipment decisions",
+        tags: [],
+        liveUrl: "https://treadfit.pro/",
+        image: "/projects/1.png"
     },
     {
-        id: "smart-mindset-pinoy",
+        id: "Modern Home Inspiration",
         num: "02",
         title: "WordPress Financial Services Website",
-        client: "Smart Mindset Pinoy",
-        description: "Empowering individuals and families with trusted financial guidance, healthcare, insurance, and wealth-building solutions.",
-        tags: ["WordPress", "Elementor", "JavaScript"],
-        liveUrl: "#",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
+        client: "Modern Home Inspiration",
+        description: "Discover creative home decor ideas, interior styling tips, room inspiration, and smart organization solutions to transform everyday living spaces into beautiful, comfortable, and functional homes.",
+        tags: [],
+        liveUrl: "https://homenesglow.com/",
+        image: "/projects/2.png"
     },
     {
-        id: "easy-travelo",
+        id: "Outdoor Grilling Essentials",
         num: "03",
         title: "Travel & Tourism Platform",
-        client: "Easy Travelo",
-        description: "Explore new destinations, create unforgettable memories, and travel with ease through custom experiences designed for adventure.",
-        tags: ["Laravel", "Booking System", "UI/UX"],
-        liveUrl: "#",
-        image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?q=80&w=800&auto=format&fit=crop"
+        client: "Outdoor Grilling Essentials",
+        description: "Explore premium grills, smokers, outdoor cooking equipment, and essential accessories with detailed product comparisons, brand insights, and helpful buying guides for grilling enthusiasts.",
+        tags: [],
+        liveUrl: "https://grillcrave.pro/",
+        image: "/projects/3.png"
     },
     {
-        id: "alwynkotts",
+        id: "Gold Price & Value Calculator",
         num: "04",
         title: "WordPress Bath Services Website",
-        client: "Alwynkotts",
-        description: "Restoring bathrooms with professional bathtub repair, reglazing, refinishing, resurfacing, and installation services.",
-        tags: ["WordPress", "Booking System", "UI/UX"],
-        liveUrl: "#",
-        image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800&auto=format&fit=crop"
+        client: "Gold Price & Value Calculator",
+        description: "Explore live gold prices, calculate gold values by weight and purity, and discover informative guides about gold jewelry, investment products, and precious metal market trends.",
+        tags: [],
+        liveUrl: "https://goldcalculator.live/",
+        image: "/projects/4.png"
     },
     {
-        id: "road-green",
+        id: "Premium Eyewear Guide",
         num: "05",
         title: "WordPress Development",
-        client: "Road Green",
-        description: "Creating greener cities for a healthier, more sustainable future, making every city cleaner and better for generations.",
-        tags: ["WordPress", "PHP", "CSS"],
-        liveUrl: "#",
-        image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?q=80&w=800&auto=format&fit=crop"
+        client: "Premium Eyewear Guide",
+        description: "Explore stylish sunglasses, optical frames, and smart eyewear through detailed reviews, brand comparisons, lens insights, and practical buying guides to find your perfect frame.",
+        tags: [],
+        liveUrl: "https://glazora.pro/",
+        image: "/projects/5.png"
     },
     {
-        id: "flow-ship-ltd",
+        id: "Mental Wellness & Growth",
         num: "06",
         title: "WordPress Logistics",
-        client: "Flow Ship Ltd",
-        description: "Moving businesses forward with reliable logistics, efficient solutions, and seamless global transportation.",
-        tags: ["WordPress", "Elementor", "JavaScript"],
-        liveUrl: "#",
-        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=800&auto=format&fit=crop"
+        client: "Mental Wellness & Growth",
+        description: "Discover practical mental wellness tips, productivity strategies, healthy habits, and personal development guides to improve focus, reduce overthinking, strengthen critical thinking, and build a balanced lifestyle.",
+        tags: [],
+        liveUrl: "https://dailymindsoft.com/",
+        image: "/projects/6.png"
     },
-    {
-        id: "silver-clip",
-        num: "07",
-        title: "WordPress Technical Services",
-        client: "Silver Clip Technical Services",
-        description: "Providing professional property maintenance and technical services including painting, plumbing, and AC maintenance across Dubai.",
-        tags: ["WordPress", "Elementor", "JavaScript"],
-        liveUrl: "#",
-        image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=800&auto=format&fit=crop"
-    },
-    {
-        id: "idaafa",
-        num: "08",
-        title: "WordPress Business Support Services",
-        client: "We, iDaafa",
-        description: "Providing comprehensive professional business support services including ISO certification, accounting, and web development.",
-        tags: ["WordPress", "Elementor", "JavaScript"],
-        liveUrl: "#",
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&auto=format&fit=crop"
-    }
 ];
+
+export interface GraphicProject {
+    image: string;
+}
 
 export const graphicProjects: GraphicProject[] = [
     {
-        id: "g-01",
-        num: "01",
-        title: "Brand Identity & Visual Assets",
-        category: "Branding",
-        image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=800&auto=format&fit=crop"
+        image: "/Graphic/1.jfif"
     },
     {
-        id: "g-02",
-        num: "02",
-        title: "UI/UX Mobile & Web Layouts",
-        category: "UI/UX",
-        image: "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?q=80&w=800&auto=format&fit=crop"
+        image: "/Graphic/2.jfif"
     },
     {
-        id: "g-03",
-        num: "03",
-        title: "Social Media Campaign Creatives",
-        category: "Marketing",
-        image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=800&auto=format&fit=crop"
+        image: "/Graphic/3.jfif"
     },
     {
-        id: "g-04",
-        num: "04",
-        title: "Promotional Banner & Vector Art",
-        category: "Illustration",
-        image: "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=800&auto=format&fit=crop"
+        image: "/Graphic/4.jfif"
     },
     {
-        id: "g-05",
-        num: "05",
-        title: "Corporate Packaging & Print Design",
-        category: "Print",
-        image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop"
+        image: "/Graphic/5.jfif"
     }
 ];

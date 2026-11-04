@@ -1,4 +1,3 @@
-/* Navbar height helper: use var(--nav-h) for sticky bars under the navbar */
 :root {
     --nav-h: 68px;
 }
@@ -32,9 +31,6 @@
     padding-bottom: 10px;
 }
 
-/* =========================================================
-   Bar
-   ========================================================= */
 .nb__bar {
     position: relative;
     display: flex;
@@ -42,6 +38,7 @@
     justify-content: space-between;
     gap: 16px;
     max-width: 1280px;
+    min-width: 0;
     margin: 0 auto;
     padding: 8px 10px 8px 16px;
     border-radius: 22px;
@@ -55,7 +52,6 @@
         box-shadow 0.4s ease;
 }
 
-/* Desktop: logo | links (truly centered) | actions */
 @media (min-width: 1024px) {
     .nb__bar {
         display: grid;
@@ -64,7 +60,6 @@
     }
 }
 
-/* Gradient border */
 .nb__bar::before {
     content: "";
     position: absolute;
@@ -80,7 +75,6 @@
     pointer-events: none;
 }
 
-/* Top highlight line */
 .nb__bar::after {
     content: "";
     position: absolute;
@@ -113,15 +107,13 @@
     opacity: 1;
 }
 
-/* =========================================================
-   Logo
-   ========================================================= */
 .nb__logo {
     position: relative;
     display: flex;
     align-items: center;
     flex-shrink: 0;
     justify-self: start;
+    min-width: 0;
     padding: 4px 6px;
     border-radius: 12px;
     -webkit-tap-highlight-color: transparent;
@@ -148,9 +140,6 @@
     }
 }
 
-/* =========================================================
-   Desktop links
-   ========================================================= */
 .nb__nav {
     display: none;
 }
@@ -172,7 +161,6 @@
     border-radius: 12px;
 }
 
-/* Hover highlight */
 .nb__item::before {
     content: "";
     position: absolute;
@@ -191,7 +179,6 @@
     }
 }
 
-/* Active page */
 .nb__item--active {
     background: rgba(255, 255, 255, 0.12);
     box-shadow:
@@ -214,7 +201,6 @@
     border-radius: 12px;
 }
 
-/* Text roll on hover: crisp, no 3D blur */
 .nb__roll {
     display: block;
     height: 20px;
@@ -251,9 +237,6 @@
     }
 }
 
-/* =========================================================
-   CTA + burger
-   ========================================================= */
 .nb__actions {
     display: flex;
     align-items: center;
@@ -321,6 +304,7 @@
 
 .nb__burger {
     position: relative;
+    flex-shrink: 0;
     width: 44px;
     height: 44px;
     border-radius: 14px;
@@ -399,12 +383,8 @@
     outline-offset: 3px;
 }
 
-/* =========================================================
-   Fullscreen mobile menu
-   ========================================================= */
 .nb-menu {
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    /* Circle opens from the burger button */
     --ox: calc(100% - 56px);
     --oy: calc(46px + env(safe-area-inset-top));
     position: fixed;
@@ -412,15 +392,25 @@
     z-index: 90;
     display: flex;
     flex-direction: column;
-    padding: calc(116px + env(safe-area-inset-top)) 28px calc(28px + env(safe-area-inset-bottom));
+    padding:
+        calc(116px + env(safe-area-inset-top)) max(28px, env(safe-area-inset-right)) calc(28px + env(safe-area-inset-bottom)) max(28px, env(safe-area-inset-left));
     background: var(--black, #000000);
+    overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     visibility: hidden;
     clip-path: circle(0 at var(--ox) var(--oy));
     transition:
         clip-path 0.85s cubic-bezier(0.77, 0, 0.18, 1),
         visibility 0s linear 0.85s;
+}
+
+@supports (height: 100dvh) {
+    .nb-menu {
+        bottom: auto;
+        height: 100dvh;
+    }
 }
 
 .nb-menu--open {
@@ -630,9 +620,6 @@
     border-radius: 12px;
 }
 
-/* =========================================================
-   Keyframes
-   ========================================================= */
 @keyframes nb-drop {
     from {
         transform: translateY(-100%);
@@ -647,9 +634,15 @@
     }
 }
 
-/* =========================================================
-   Responsive
-   ========================================================= */
+@media (max-width: 1023px) {
+
+    html:has(.nb--open),
+    html:has(.nb--open) body {
+        overflow: hidden;
+        overscroll-behavior: none;
+    }
+}
+
 @media (min-width: 640px) {
     .nb__cta {
         display: inline-flex;
@@ -658,12 +651,21 @@
 
 @media (min-width: 640px) and (max-width: 1023px) {
     .nb-menu {
-        padding-left: 48px;
-        padding-right: 48px;
+        padding-left: max(48px, env(safe-area-inset-left));
+        padding-right: max(48px, env(safe-area-inset-right));
     }
 
     .nb-menu__link {
         font-size: clamp(2.6rem, 7vw, 3.6rem);
+    }
+
+    .nb-menu__meta {
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 24px;
+    }
+
+    .nb-menu__meta>* {
+        border-bottom: 0;
     }
 }
 
@@ -678,7 +680,6 @@
     }
 }
 
-/* Small laptops: keep everything in one line */
 @media (min-width: 1024px) and (max-width: 1199px) {
     .nb {
         padding-left: 16px;
@@ -705,7 +706,6 @@
     }
 }
 
-/* Phones */
 @media (max-width: 639px) {
     .nb {
         padding: calc(10px + env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) 10px max(12px, env(safe-area-inset-left));
@@ -729,11 +729,19 @@
     .nb-menu {
         --ox: calc(100% - 41px);
         --oy: calc(39px + env(safe-area-inset-top));
-        padding: calc(100px + env(safe-area-inset-top)) 22px calc(24px + env(safe-area-inset-bottom));
+        padding:
+            calc(100px + env(safe-area-inset-top)) max(22px, env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) max(22px, env(safe-area-inset-left));
     }
 
     .nb-menu__link {
         padding: 15px 0;
+    }
+
+    .nb-menu::after {
+        top: -240px;
+        right: -240px;
+        width: 440px;
+        height: 440px;
     }
 }
 
@@ -742,9 +750,39 @@
         width: 118px;
         height: 34px;
     }
+
+    .nb__burger {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nb__burger span {
+        left: 11px;
+    }
+
+    .nb__burger span:nth-child(1) {
+        top: 13px;
+    }
+
+    .nb__burger span:nth-child(2) {
+        top: 19px;
+    }
+
+    .nb__burger span:nth-child(3) {
+        top: 25px;
+    }
+
+    .nb-menu {
+        --ox: calc(100% - 39px);
+        --oy: calc(37px + env(safe-area-inset-top));
+    }
+
+    .nb-menu__link {
+        gap: 12px;
+        font-size: clamp(1.7rem, 8.6vw, 2rem);
+    }
 }
 
-/* Short screens (landscape phones) */
 @media (max-height: 640px) and (max-width: 1023px) {
     .nb-menu {
         padding-top: calc(92px + env(safe-area-inset-top));
@@ -760,9 +798,6 @@
     }
 }
 
-/* =========================================================
-   Accessibility: respect reduced motion
-   ========================================================= */
 @media (prefers-reduced-motion: reduce) {
 
     .nb,

@@ -71,7 +71,7 @@ export default function Cta() {
                         <li>
                             <Phone size={18} />
                             <span>
-                                <em>Call / WhatsApp</em>
+
                                 <a href="tel:+923170632398">+92 317 0632398</a>
                                 <a href="tel:++923313285040">+92 331 3285040</a>
                             </span>

@@ -101,7 +101,10 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 34px 30px 30px;
+    min-width: 0;
+    --px: 30px;
+    --pt: 34px;
+    padding: var(--pt) var(--px) 30px;
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.008)), #0a0a0b;
@@ -158,6 +161,30 @@
 .ss-card:hover::after {
     transform: translateY(-8px);
     -webkit-text-stroke-color: rgba(255, 255, 255, 0.28);
+}
+
+.ss-card__media {
+    position: relative;
+    flex-shrink: 0;
+    width: calc(100% + var(--px) * 2);
+    aspect-ratio: 1 / 1;
+    margin: calc(var(--pt) * -1) calc(var(--px) * -1) 26px;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.04);
+    overflow: hidden;
+}
+
+.ss-card__media img,
+.ss-card__media svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
 }
 
 .ss-card__top {
@@ -425,7 +452,9 @@
     }
 
     .ss-card {
-        padding: 28px 24px 26px;
+        --px: 24px;
+        --pt: 28px;
+        padding: var(--pt) var(--px) 26px;
         border-radius: 22px;
     }
 

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Filter } from "lucide-react";
 import { webProjects, graphicProjects } from "@/data/portfolio";
@@ -12,7 +11,6 @@ export default function PortfolioPage() {
     const [activeTab, setActiveTab] = useState<"web" | "graphics">("web");
     const pageRef = useRef<HTMLElement>(null);
 
-    // Scroll reveal for cards (re-runs when the tab changes)
     useEffect(() => {
         const root = pageRef.current;
         if (!root) return;
@@ -65,6 +63,7 @@ export default function PortfolioPage() {
                         <Filter size={16} />
                         <span>Category:</span>
                     </div>
+
                     <div className="pp-tabs" role="tablist" aria-label="Portfolio categories">
                         <button
                             type="button"
@@ -75,6 +74,7 @@ export default function PortfolioPage() {
                         >
                             Web Development ({webProjects.length})
                         </button>
+
                         <button
                             type="button"
                             role="tab"
@@ -111,15 +111,23 @@ export default function PortfolioPage() {
                                         <span className="pp-card__num">{project.num}</span>
                                         <span className="pp-card__client">{project.client}</span>
                                     </div>
+
                                     <div className="pp-card__body">
                                         <h2>{project.title}</h2>
                                         <p className="pp-card__desc">{project.description}</p>
+
                                         <div className="pp-tags">
                                             {project.tags.map((tag, idx) => (
                                                 <span key={idx}>{tag}</span>
                                             ))}
                                         </div>
-                                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="pp-card__link">
+
+                                        <a
+                                            href={project.liveUrl}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="pp-card__link"
+                                        >
                                             Live Preview
                                             <span className="pp-card__arrow">
                                                 <ArrowUpRight size={16} />
@@ -133,37 +141,20 @@ export default function PortfolioPage() {
                         <div className="pp-grid" key="graphics">
                             {graphicProjects.map((project, index) => (
                                 <article
-                                    key={project.id}
-                                    className="pp-card"
+                                    key={index}
+                                    className="pp-card pp-card--graphic"
                                     data-reveal
                                     style={{ "--d": `${(index % 3) * 100}ms` } as React.CSSProperties}
                                 >
                                     <div className="pp-card__img-box">
                                         <Image
                                             src={project.image}
-                                            alt={project.title}
+                                            alt={`Graphic ${index + 1}`}
                                             fill
                                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                             priority={index < 2}
                                             className="pp-card__img"
                                         />
-                                        <span className="pp-card__num">{project.num}</span>
-                                        <span className="pp-card__client">{project.category}</span>
-                                    </div>
-                                    <div className="pp-card__body">
-                                        <h2>{project.title}</h2>
-                                        <p className="pp-card__desc">Branding and marketing visuals designed to look consistent and get noticed across web and social media.</p>
-                                        <div className="pp-tags">
-                                            <span>Branding</span>
-                                            <span>UI/UX</span>
-                                            <span>Creative Assets</span>
-                                        </div>
-                                        <Link href="/contact" className="pp-card__link">
-                                            Request A Design
-                                            <span className="pp-card__arrow">
-                                                <ArrowUpRight size={16} />
-                                            </span>
-                                        </Link>
                                     </div>
                                 </article>
                             ))}
