@@ -7,8 +7,8 @@ interface Review {
     id: string;
     name: string;
     role: string;
-    country: string;
-    project: string;
+    country?: string;
+    project?: string;
     rating: number;
     text: string;
 }
@@ -18,7 +18,6 @@ const reviews: Review[] = [
         id: "1",
         name: "Sarah Mitchell",
         role: "Founder, Wellness Studio",
-
         rating: 5,
         text: "They understood our brand from the first call and built a calm, easy-to-use website. Clients can now book sessions online, and the whole process was clearly communicated.",
     },
@@ -26,7 +25,6 @@ const reviews: Review[] = [
         id: "2",
         name: "Daniel Reyes",
         role: "Financial Advisor",
-
         rating: 5,
         text: "The website explains our services clearly and loads quickly. Pixel Backend delivered on schedule and handled every revision without any fuss.",
     },
@@ -34,7 +32,6 @@ const reviews: Review[] = [
         id: "3",
         name: "Ahmed Raza",
         role: "Director, Logistics Company",
-
         rating: 5,
         text: "We needed a professional online presence for our shipping business. The team kept the design clean, the pages organised, and the delivery on time.",
     },
@@ -42,7 +39,6 @@ const reviews: Review[] = [
         id: "4",
         name: "James Carter",
         role: "Owner, Bathroom Refinishing",
-
         rating: 5,
         text: "Our new site shows our work properly and makes it easy for customers to request a quote. Good communication from kickoff to launch.",
     },
@@ -50,7 +46,6 @@ const reviews: Review[] = [
         id: "5",
         name: "Hina Malik",
         role: "Founder, Travel Agency",
-
         rating: 5,
         text: "They built our booking platform around how we actually work. It is simple for customers, and the team stayed responsive after launch as well.",
     },
@@ -58,7 +53,6 @@ const reviews: Review[] = [
         id: "6",
         name: "Laura Bennett",
         role: "Programme Lead, Environmental Initiative",
-
         rating: 5,
         text: "Pixel Backend turned our message into a clear, modern website. Their attention to detail was strong, and the pages work well on mobile.",
     },
@@ -68,7 +62,7 @@ function Card({ item }: { item: Review }) {
     return (
         <article className="rv-card">
             <div className="rv-card__top">
-                <span className="rv-chip">{item.project}</span>
+                {item.project ? <span className="rv-chip">{item.project}</span> : <span />}
                 <Quote className="rv-card__quote" size={34} aria-hidden="true" />
             </div>
 
@@ -83,7 +77,7 @@ function Card({ item }: { item: Review }) {
             <div className="rv-card__foot">
                 <h4>{item.name}</h4>
                 <span>{item.role}</span>
-                <em>{item.country}</em>
+                {item.country ? <em>{item.country}</em> : null}
             </div>
         </article>
     );
