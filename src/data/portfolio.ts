@@ -105,9 +105,9 @@ export const webProjects: WebProject[] = [
 ];
 
 export const graphicProjects: GraphicProject[] = [
-    { image: "/graphic/1.png" },
-    { image: "/graphic/2.png" },
-    { image: "/graphic/3.png" },
-    { image: "/graphic/4.png" },
-    { image: "/graphic/5.png" },
+    { image: "/graphic/graphic1.png" },
+    { image: "/graphic/graphic2.png" },
+    { image: "/graphic/graphic3.png" },
+    { image: "/graphic/graphic4.png" },
+    { image: "/graphic/graphic5.png" },
 ];
