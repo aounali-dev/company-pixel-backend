@@ -8,6 +8,7 @@ export const ASSETS = {
     logoPhotoroom: "/images/pixel-Photoroom.png",
     servicesHero: "/images/services-hero.jpg",
 
+    // Graphic Design Folder Images (graphic1.png to graphic5.png)
     graphic: {
         item1: "/graphic/graphic1.png",
         item2: "/graphic/graphic2.png",

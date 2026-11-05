@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useRef, useState } from "react";
@@ -11,6 +12,7 @@ export default function PortfolioPage() {
     const [activeTab, setActiveTab] = useState<"web" | "graphics">("web");
     const pageRef = useRef<HTMLElement>(null);
 
+    // Scroll reveal for cards (re-runs when the tab changes)
     useEffect(() => {
         const root = pageRef.current;
         if (!root) return;
@@ -142,7 +144,7 @@ export default function PortfolioPage() {
                             {graphicProjects.map((project, index) => (
                                 <article
                                     key={index}
-                                    className="pp-card pp-card--graphic"
+                                    className="pp-card"
                                     data-reveal
                                     style={{ "--d": `${(index % 3) * 100}ms` } as React.CSSProperties}
                                 >
