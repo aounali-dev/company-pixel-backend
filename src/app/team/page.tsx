@@ -86,12 +86,6 @@ export default function TeamPage() {
                                     <h2>{member.name}</h2>
                                     <p className="tp-card__desc">{member.bio}</p>
 
-                                    <div className="tp-tags">
-                                        {member.tags.map((tag, idx) => (
-                                            <span key={idx}>{tag}</span>
-                                        ))}
-                                    </div>
-
                                     <Link href="/contact" className="tp-card__link">
                                         Work With {member.name.split(" ")[0]}
                                         <span className="tp-card__arrow">

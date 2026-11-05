@@ -78,7 +78,7 @@ export default function Cta() {
                         </li>
                         <li>
                             <MapPin size={18} />
-                            <span> <strong>D I Khan City Office:</strong> Ashiana Plaza, 1st Floor</span>
+                            <span className="ashiana"> <strong>D I Khan City Office:</strong> Ashiana Plaza, 1st Floor</span>
                         </li>
 
                     </ul>

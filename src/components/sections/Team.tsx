@@ -39,12 +39,6 @@ export default function TeamSection() {
                             <div className="ts-card__body">
                                 <h3>{member.name}</h3>
                                 <p>{member.bio}</p>
-
-                                <div className="ts-tags">
-                                    {member.tags.map((tag, idx) => (
-                                        <span key={idx}>{tag}</span>
-                                    ))}
-                                </div>
                             </div>
                         </div>
                     ))}
