@@ -6,7 +6,7 @@ import "@/components/sections/whatsapp-widget.css";
 export default function WhatsAppWidget() {
     const [isOpen, setIsOpen] = useState(false);
     const [message, setMessage] = useState("");
-    const whatsappNumber = "923489156101";
+    const whatsappNumber = "923170632398";
 
     const handleSendMessage = (e: React.FormEvent) => {
         e.preventDefault();
