@@ -21,21 +21,23 @@ export const webProjects: WebProject[] = [
         num: "01",
         title: "WordPress Wellness Website",
         client: "Treadmill Research Platform",
-        description: "Explore trusted treadmill reviews, detailed specifications, brand comparisons, and fitness tools designed to simplify research and help users make informed home fitness equipment decisions",
+        description: "Explore trusted treadmill reviews, detailed specifications, brand comparisons, and fitness tools designed to simplify research and help users make informed home fitness equipment decisions.",
         tags: [],
         liveUrl: "https://treadfit.pro/",
         image: ASSETS.projects.proj1
     },
+
     {
-        id: "Modern Home Inspiration",
-        num: "02",
-        title: "WordPress Financial Services Website",
-        client: "Modern Home Inspiration",
-        description: "Discover creative home decor ideas, interior styling tips, room inspiration, and smart organization solutions to transform everyday living spaces into beautiful, comfortable, and functional homes.",
+        id: "Garden Outdoor Guide",
+        num: "10",
+        title: "Garden Outdoor Guide", // Fixed missing quote here
+        client: "Client Project 10",
+        description: "A comprehensive gardening platform featuring expert plant care tips, outdoor tool recommendations, seasonal guides, and practical resources to help gardening enthusiasts create beautiful, sustainable green spaces.",
         tags: [],
-        liveUrl: "https://homenesglow.com/",
-        image: ASSETS.projects.proj2
+        liveUrl: "https://seedrove.com/",
+        image: ASSETS.projects.proj10
     },
+
     {
         id: "Outdoor Grilling Essentials",
         num: "03",
@@ -56,6 +58,18 @@ export const webProjects: WebProject[] = [
         liveUrl: "https://goldcalculator.live/",
         image: ASSETS.projects.proj4
     },
+
+    {
+        id: "Plumbing Products Guide",
+        num: "08",
+        title: "Plumbing Products Guide",
+        client: "Client Project 8",
+        description: "A modern plumbing product platform featuring curated recommendations, detailed comparisons, and trusted reviews of faucets, showers, bathroom fixtures, and essential plumbing accessories with a clean, user-friendly design.",
+        tags: [],
+        liveUrl: "https://taptest.pro/",
+        image: ASSETS.projects.proj8
+    },
+
     {
         id: "Premium Eyewear Guide",
         num: "05",
@@ -76,6 +90,61 @@ export const webProjects: WebProject[] = [
         liveUrl: "https://dailymindsoft.com/",
         image: ASSETS.projects.proj6
     },
+    {
+        id: "Kitchen Home Guide",
+        num: "07",
+        title: "Kitchen Home Guide",
+        client: "Client Project 7",
+        description: "A modern kitchen and home guide featuring trusted product reviews, curated appliance recommendations, and everyday cooking inspiration with a clean, user-friendly design and fresh visual identity.",
+        tags: [],
+        liveUrl: "https://kitchzen.pro/",
+        image: ASSETS.projects.proj7
+    },
+
+    {
+        id: "Digital Learning Platform",
+        num: "09",
+        title: "Digital Learning Platform",
+        client: "Client Project 9",
+        description: "An innovative learning platform providing beginner-friendly technology tutorials, AI resources, practical digital guides, and productivity tips to help users develop skills and confidently embrace technology.",
+        tags: [],
+        liveUrl: "https://skillbrewhub.online/",
+        image: ASSETS.projects.proj9
+    },
+
+    {
+        id: "Technology News Hub",
+        num: "11",
+        title: "Technology News Hub",
+        client: "Client Project 11",
+        description: "A professional technology blog featuring the latest digital trends, cybersecurity insights, data visualization tools, and practical learning resources through an engaging, organized, and user-friendly design.",
+        tags: [],
+        liveUrl: "https://skillbrewhub.com/",
+        image: ASSETS.projects.proj11
+    },
+    {
+        id: "Retro Music Store",
+        num: "12",
+        title: "Retro Music Store",
+        client: "Client Project 12",
+        description: "A stylish vintage music merchandise store featuring unique vinyl clocks, retro tin signs, band-inspired apparel, and exclusive bundles with an engaging shopping experience and nostalgic design.",
+        tags: [],
+        liveUrl: "https://www.retroprogression.com/",
+        image: ASSETS.projects.proj12
+    },
+
+
+
+    {
+        id: "Premium Leather Store",
+        num: "13",
+        title: "Next-Gen Web Solution",
+        client: "Client Project 13",
+        description: "A luxury leather eCommerce website showcasing premium handbags, jackets, belts, and gloves with elegant product displays, sophisticated styling, and a seamless shopping experience.",
+        tags: [],
+        liveUrl: "https://stagleathers.com/",
+        image: ASSETS.projects.proj13
+    }
 ];
 
 export const graphicProjects: GraphicProject[] = [

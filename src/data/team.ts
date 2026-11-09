@@ -1,3 +1,4 @@
+
 export interface TeamMember {
     id: string;
     name: string;
@@ -26,7 +27,7 @@ export const teamMembers: TeamMember[] = [
         name: "Aoun Ali",
         role: "Full-Stack Developer",
         bio: "Full-Stack Developer at PixelBackend. He specializes in developing modern, responsive, and user-friendly websites and web applications. He works on both frontend and backend development, focusing on clean code, website performance, database management, and delivering reliable digital solutions.",
-        image: "/images/aouni.png"
+        image: "/images/aoun.png"
     },
     {
         id: "mujtaba",
@@ -41,6 +42,13 @@ export const teamMembers: TeamMember[] = [
         role: "SEO Expert",
         bio: "SEO Expert at PixelBackend, specializing in improving website visibility and search engine rankings. He focuses on keyword research, on-page SEO, off-page SEO, technical SEO, and content optimization to increase organic traffic and help businesses grow online.",
         image: "/images/abdul.png"
+    },
+    {
+        id: "zarshan",
+        name: "Zarshan",
+        role: "Video Editor",
+        bio: "Professional Video Editor specializing in creative video editing, cinematic transitions, color grading, motion graphics, reels, shorts, and social media content.",
+        image: "/images/zarshan.png"
     }
 ];
 
