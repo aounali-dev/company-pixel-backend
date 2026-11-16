@@ -101,11 +101,11 @@ export default function ReviewsSection() {
                         </p>
                         <div className="rv-stats">
                             <div>
-                                <strong>40+</strong>
+                                <strong>95+</strong>
                                 <span>Happy Clients</span>
                             </div>
                             <div>
-                                <strong>50+</strong>
+                                <strong>100+</strong>
                                 <span>Projects Delivered</span>
                             </div>
                         </div>

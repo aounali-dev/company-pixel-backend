@@ -53,8 +53,7 @@ export default function About() {
                             />
 
                             <div className="about__caption">
-                                <h3 className="about__name">Asad Ali</h3>
-                                <p className="about__role">CEO &amp; Founder, Pixel Backend</p>
+                                <h3 className="about__name">Pixel Backend</h3>
                             </div>
                         </div>
 
@@ -86,11 +85,7 @@ export default function About() {
                             improve, and grow their presence online. We bring development, design, marketing, SEO,
                             video, and animation together under one roof.
                         </p>
-                        {/* <p className="about__p about__r" style={d(0.3)}>
-                            Whether you are launching a new business, refreshing an existing brand, or looking for a
-                            stronger online presence, we create solutions around your actual requirements with
-                            attention to detail and a modern mindset.
-                        </p> */}
+
 
                         <ul className="about__points">
                             {POINTS.map((p, i) => (

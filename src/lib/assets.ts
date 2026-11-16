@@ -6,6 +6,7 @@ export const ASSETS = {
     mujtaba: "/images/mujtaba.png",
     abdul: "/images/abdul.png",
     zarshan: "/images/zarshan.png",
+    zarshan: "/images/asad-f.png",
 
     logo: "/images/pixel.png",
     logoPhotoroom: "/images/pixel-Photoroom.png",

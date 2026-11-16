@@ -13,7 +13,7 @@ export const teamMembers: TeamMember[] = [
         name: "Asad Ali",
         role: "Founder",
         bio: "Founder of PixelBackend. He leads the company's vision, development, and business strategy, focusing on delivering innovative digital solutions, quality services, and reliable technology experiences for clients.",
-        image: "/images/asad.png"
+        image: "/images/asad-f.png"
     },
     {
         id: "murtaza",
@@ -45,7 +45,7 @@ export const teamMembers: TeamMember[] = [
     },
     {
         id: "zarshan",
-        name: "Zarshan",
+        name: "Zarshan Mehdi",
         role: "Video Editor",
         bio: "Professional Video Editor specializing in creative video editing, cinematic transitions, color grading, motion graphics, reels, shorts, and social media content.",
         image: "/images/zarshan.png"

@@ -13,9 +13,9 @@ const TITLE = ["We", "Build", "Digital", "Experiences", "That", "Move", "Busines
 const OUTLINE = new Set(["Digital", "Experiences"]);
 
 const STATS = [
-    { value: 50, label: "Projects Delivered" },
-    { value: 40, label: "Happy Clients" },
-    { value: 3, label: "Years Experience" },
+    { value: 100, label: "Projects Delivered" },
+    { value: 95, label: "Happy Clients" },
+    { value: 4, label: "Years Experience" },
 ];
 
 const SERVICES = [
