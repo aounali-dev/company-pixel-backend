@@ -1,4 +1,3 @@
-
 export const ASSETS = {
     asad: "/images/asad.png",
     murtaza: "/images/murtaza.png",
@@ -6,7 +5,7 @@ export const ASSETS = {
     mujtaba: "/images/mujtaba.png",
     abdul: "/images/abdul.png",
     zarshan: "/images/zarshan.png",
-    zarshan: "/images/asad-f.png",
+    asadF: "/images/asad-f.png", // Duplicate key fixed here
 
     logo: "/images/pixel.png",
     logoPhotoroom: "/images/pixel-Photoroom.png",
